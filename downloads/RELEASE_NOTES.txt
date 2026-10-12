@@ -1,0 +1,41 @@
+VideoView 1.1.0 — Windows x64 release candidate
+Release date: 2026-10-12
+
+Main executable: /workspace/scratch/b036723ecd4f/VideoView/Release/App/VideoView.exe
+Main executable size: 179,712 bytes
+Installer: /workspace/scratch/b036723ecd4f/VideoView/Release/VideoView-Setup.exe
+Installer size: 113,090,256 bytes
+Portable package: /workspace/scratch/b036723ecd4f/VideoView/Release/VideoView-Portable.zip
+Portable package size: 113,441,881 bytes
+Complete source: /workspace/scratch/b036723ecd4f/VideoView/Release/VideoView-Source.zip
+Third-party source: /workspace/scratch/b036723ecd4f/VideoView/Release/VideoView-ThirdPartySources.zip
+
+BUILD: Release build and self-contained win-x64 publication succeeded.
+TESTS: 59 core logic tests passed; zero failed. Compiler: 0 warnings, 0 errors.
+DEPENDENCIES: .NET/Windows Desktop 10.0.12; LibVLCSharp 3.10.1; native x64
+LibVLC 3.0.24 and 321 VLC plugins included. Main EXE requires adjacent files.
+PACKAGE CHECKS: SHA256/PE/runtime validation. See source Docs/package-verification.json
+for setup extraction and portable ZIP comparison against the exact payload manifest.
+INSTALLATION/UNINSTALLATION: Not executed. NSIS setup compiled on Linux.
+PLAYBACK: Published Windows startup, GUI, audible audio and GPU output are unverified.
+Headless Linux playback diagnostics are narrower; see Docs/PlaybackSmoke/results.json,
+playback-smoke.log and image-validation evidence in the source archive.
+
+Download setup and install, or extract ALL files from the portable ZIP and run
+VideoView/VideoView.exe. A bare VideoView.exe download alone cannot run.
+Per-user installation; optional Desktop/Open With; no default-player takeover.
+Settings use LocalAppData/VideoView and survive ordinary upgrades/uninstallation.
+No runtime downloads, telemetry or administrator rights are requested by VideoView.
+
+LIMITATIONS: Unsigned release candidate; no clean Windows verification. Native
+Windows GUI/playback, install/uninstall, Explorer forwarding and DPI tests remain.
+The upgrade adds multi-select/search/sort/drag reorder, recursive folder import,
+real metadata/cached thumbnails, mini mode/control hiding, speeds through 4x,
+subtitle styling and renderer/audio preferences. UI actions need Windows acceptance.
+No timeline frame previews; thumbnail extraction uses existing Windows cache only.
+External subtitle file/track selections are per-session. Portable data is per-user.
+All remaining gates are in Docs/QA_REPORT.md and Docs/WINDOWS_TEST_CHECKLIST.md.
+
+Source includes WPF/C# application, core assertions, synthetic test media, original
+icons, locked dependencies, NSIS source, Bash/PowerShell build scripts and notices.
+See ARTIFACTS.json for exact file sizes and SHA256SUMS.txt for release checksums.
