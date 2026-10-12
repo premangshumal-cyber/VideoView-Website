@@ -10,16 +10,16 @@ https://premangshumal-cyber.github.io/VideoView-Website/
 - SVG brand mark and original landscape illustration (concept art, not a real product screenshot)
 - SHA-256 checksum list, test reports, Windows test checklist and release notes
 
-## Software installers
-The software packages (**VideoView-Setup.exe**, **VideoView-Portable.zip**, application source and third-party source ZIP) are **not in this git repository**. They are too large to publish here as ordinary website files, and have not yet been uploaded to GitHub Releases.
+## Software installers — published pre-release
 
-Until those assets are published, software download buttons open the [GitHub Releases page](https://github.com/premangshumal-cyber/VideoView-Website/releases). They **do not download the software yet**. Text documentation and checksums are in the \`downloads/\` folder and do work.
+The software packages are hosted as **GitHub Release assets**, not regular git repository files. These direct-download links are configured in `assets/js/download-config.js`:
 
-To enable direct downloads:
-1. In this repository, create a GitHub Release tag **v1.1.0**, titled **VideoView 1.1.0 — Release Candidate**.
-2. Upload the four software files with these exact filenames: \`VideoView-Setup.exe\`, \`VideoView-Portable.zip\`, \`VideoView-Source.zip\`, \`VideoView-ThirdPartySources.zip\`. The checksums in \`downloads/SHA256SUMS.txt\` should match the actual files.
-3. Edit \`assets/js/download-config.js\`: set \`baseUrl\` to \`https://github.com/premangshumal-cyber/VideoView-Website/releases/download/v1.1.0/\`.
-4. Verify every download on the public site and compare SHA-256 checksums.
+- [VideoView Windows installer](https://github.com/premangshumal-cyber/VideoView-Website/releases/download/v1.1.0/VideoView-Setup.exe)
+- [VideoView Portable ZIP](https://github.com/premangshumal-cyber/VideoView-Website/releases/download/v1.1.0/VideoView-Portable.zip)
+- [VideoView application source ZIP](https://github.com/premangshumal-cyber/VideoView-Website/releases/download/v1.1.0/VideoView-Source.zip)
+- [VideoView third-party source ZIP](https://github.com/premangshumal-cyber/VideoView-Website/releases/download/v1.1.0/VideoView-ThirdPartySources.zip)
+
+GitHub confirmed the v1.1.0 pre-release is public and these four assets were uploaded; their file sizes match those in the local release notes. Checksums, QA report, and Windows test checklist are available from the website's local `downloads/` directory, not GitHub Releases. Confirm the checksum of each downloaded binary before use.
 
 ## Enable GitHub Pages
 Repository → **Settings** → **Pages** → Build and deployment → **Deploy from a branch** → Branch **main**, folder **/(root)** → Save.

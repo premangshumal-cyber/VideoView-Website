@@ -1,11 +1,8 @@
-/* VideoView GitHub release downloads.
-   Once all assets are uploaded to a published release with tag v1.1.0,
-   set baseUrl to:
-   "https://github.com/premangshumal-cyber/VideoView-Website/releases/download/v1.1.0/"
-   Until then, software buttons lead to the releases overview, not a missing EXE. */
+/* VideoView release v1.1.0. Only software binary links use the GitHub release URL.
+   The small documents (checksums, QA report, checklist, notes) are in downloads/ on GitHub Pages. */
 window.VideoViewDownloadConfig = Object.freeze({
-  baseUrl: "",
-  releasePage: "https://github.com/premangshumal-cyber/VideoView-Website/releases",
+  baseUrl: "https://github.com/premangshumal-cyber/VideoView-Website/releases/download/v1.1.0/",
+  releasePage: "https://github.com/premangshumal-cyber/VideoView-Website/releases/tag/v1.1.0",
   files: Object.freeze({
     setup: "VideoView-Setup.exe",
     portable: "VideoView-Portable.zip",

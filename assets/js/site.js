@@ -60,8 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-download]").forEach(a => {
       const key = a.getAttribute("data-download");
       if (!Object.prototype.hasOwnProperty.call(files,key)) return;
-      if (hosted) {
+      if (hosted && software.has(key)) {
         a.href = cfg.baseUrl.replace(/\/?$/, "/") + encodeURIComponent(files[key]);
+        a.removeAttribute("download");
+        a.rel = "noopener noreferrer";
       } else if (software.has(key)) {
         a.href = cfg.releasePage;
         a.removeAttribute("download");
