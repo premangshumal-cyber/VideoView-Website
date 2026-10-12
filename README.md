@@ -1,8 +1,10 @@
 # VideoView website
 Premium dark-navy and teal static website for **VideoView 1.1.0 (Windows x64 release candidate)**.
 
-## Live site (after GitHub Pages activation)
-https://premangshumal-cyber.github.io/VideoView-Website/
+## Official domain (DNS and GitHub Pages activation pending)
+https://videoview.online/
+
+The repository root `CNAME` file is set to `videoview.online`.
 
 ## Included
 - Home, Features, Downloads, Release Notes, and Privacy & Licenses HTML pages
@@ -24,7 +26,18 @@ GitHub confirmed the v1.1.0 pre-release is public and these four assets were upl
 ## Enable GitHub Pages
 Repository → **Settings** → **Pages** → Build and deployment → **Deploy from a branch** → Branch **main**, folder **/(root)** → Save.
 
-Expected URL: https://premangshumal-cyber.github.io/VideoView-Website/
+Expected custom-domain URL: https://videoview.online/ (after DNS and Pages verification).
+
+### DNS setup at your domain registrar
+Create four A records for host `@` pointing to:
+- `185.199.108.153`
+- `185.199.109.153`
+- `185.199.110.153`
+- `185.199.111.153`
+
+Add a CNAME record for host `www` pointing to `premangshumal-cyber.github.io` (without the repository suffix). Remove conflicting old parking/forwarding A, AAAA, or CNAME records for these hostnames. Do not delete unrelated MX or TXT records.
+
+In GitHub Pages settings, confirm the **Custom domain** is `videoview.online` and save if necessary. When DNS validation and the TLS certificate finish, enable **Enforce HTTPS**. DNS propagation can take up to 24 hours.
 
 This is a project website, not the Windows software itself. **Native Windows startup/playback and installation tests have not yet been completed**, per the QA report. Do not call this a stable/verified release without completing the Windows test checklist.
 
