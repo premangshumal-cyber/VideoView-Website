@@ -42,3 +42,20 @@ In GitHub Pages settings, confirm the **Custom domain** is `videoview.online` an
 This is a project website, not the Windows software itself. **Native Windows startup/playback and installation tests have not yet been completed**, per the QA report. Do not call this a stable/verified release without completing the Windows test checklist.
 
 See [deployment guide](DEPLOYMENT_GUIDE.md) for alternate hosts and website deployment.
+
+## Android app publishing status
+
+An Android APK named `VideoView-Android-1.0.0(1).apk` was provided in the ChatGPT conversation (approximately 4.3 MiB); this repository **does not yet contain a public Android APK release**. The package's application ID, Android version requirements, signing and runtime behavior have not been verified.
+
+The website now includes an Android feature callout and an Android download card, explicitly marked **release pending**. Do not replace that status with a download link until a public GitHub Release asset actually exists.
+
+### Finish Android release upload
+
+1. Rename a copy of the provided APK to `VideoView-Android-1.0.0.apk` (do not modify the APK content).
+2. In this GitHub repository, go to **Releases → Draft a new release**.
+3. Use tag `android-v1.0.0` and title `VideoView Android 1.0.0 — Pre-release`. Select **Pre-release** until Android testing is complete.
+4. Add brief testing/compatibility notes and upload `VideoView-Android-1.0.0.apk` under **Attach binaries**.
+5. Publish, confirm the asset is really present, then set `android.url` in `assets/js/download-config.js` to the **confirmed asset URL**. The website switches the Android button to **Download Android APK** automatically.
+6. Optionally add a verified SHA-256 for the Android APK once its bytes can be independently checked.
+
+Windows installer links are unaffected.

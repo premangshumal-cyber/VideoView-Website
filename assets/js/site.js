@@ -52,6 +52,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  const androidDownload = document.querySelector("[data-android-download]");
+  if (androidDownload && window.VideoViewDownloadConfig?.android) {
+    const a = window.VideoViewDownloadConfig.android;
+    if (typeof a.url === "string" && /^https:\/\//i.test(a.url)) {
+      androidDownload.href = a.url;
+      androidDownload.textContent = "Download Android APK";
+      androidDownload.classList.remove("btn-secondary");
+      androidDownload.classList.add("btn-primary");
+      androidDownload.removeAttribute("download");
+    } else {
+      androidDownload.href = a.releasePage;
+      androidDownload.textContent = "View Releases (APK pending)";
+      androidDownload.removeAttribute("download");
+    }
+  }
   const cfg = window.VideoViewDownloadConfig;
   if (cfg && cfg.files) {
     const files = cfg.files;
