@@ -43,19 +43,16 @@ This is a project website, not the Windows software itself. **Native Windows sta
 
 See [deployment guide](DEPLOYMENT_GUIDE.md) for alternate hosts and website deployment.
 
-## Android app publishing status
+## Android download (published)
 
-An Android APK named `VideoView-Android-1.0.0(1).apk` was provided in the ChatGPT conversation (approximately 4.3 MiB); this repository **does not yet contain a public Android APK release**. The package's application ID, Android version requirements, signing and runtime behavior have not been verified.
+Android v1.0.0 is available as a public **pre-release**, tagged `android-v1.0.0`.
 
-The website now includes an Android feature callout and an Android download card, explicitly marked **release pending**. Do not replace that status with a download link until a public GitHub Release asset actually exists.
+- [Download VideoView Android 1.0.0 APK](https://github.com/premangshumal-cyber/VideoView-Website/releases/download/android-v1.0.0/VideoView-Android-1.0.0.apk)
+- GitHub Release: https://github.com/premangshumal-cyber/VideoView-Website/releases/tag/android-v1.0.0
+- Exact asset name: `VideoView-Android-1.0.0.apk`
+- Asset size: 4,491,951 bytes
+- SHA-256 digest (reported by GitHub): `31f97cb3575388b4ab47dc1ee91a0ab6372353df06460a4ec074d8fa0439967f`
 
-### Finish Android release upload
+The Android download button in `downloads.html` now points to the published asset, and `assets/js/download-config.js` is configured with the same verified URL. The Windows v1.1.0 download links are unchanged.
 
-1. Rename a copy of the provided APK to `VideoView-Android-1.0.0.apk` (do not modify the APK content).
-2. In this GitHub repository, go to **Releases → Draft a new release**.
-3. Use tag `android-v1.0.0` and title `VideoView Android 1.0.0 — Pre-release`. Select **Pre-release** until Android testing is complete.
-4. Add brief testing/compatibility notes and upload `VideoView-Android-1.0.0.apk` under **Attach binaries**.
-5. Publish, confirm the asset is really present, then set `android.url` in `assets/js/download-config.js` to the **confirmed asset URL**. The website switches the Android button to **Download Android APK** automatically.
-6. Optionally add a verified SHA-256 for the Android APK once its bytes can be independently checked.
-
-Windows installer links are unaffected.
+**Note:** Publication does not constitute security or functionality testing. Minimum supported Android version, package identity, signing certificate and runtime playback have not been independently verified.
