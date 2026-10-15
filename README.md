@@ -1,10 +1,23 @@
 # VideoView website
 Premium dark-navy and teal static website for **VideoView 1.1.0 (Windows x64 release candidate)**.
 
-## Official domain (DNS and GitHub Pages activation pending)
-https://videoview.online/
+## Official production website — Vercel
 
-The repository root `CNAME` file is set to `videoview.online`.
+- Domain: https://videoview.online/
+- Preferred domain: https://www.videoview.online/ (Vercel redirect from apex, 308)
+- Vercel project: https://vercel.com/premangshu/videoview-website
+- GitHub `main` is the deployment source.
+- DNS is hosted by **BigRock** (authoritative nameservers: `dns1.bigrock.in` through `dns4.bigrock.in`).
+- The obsolete GitHub Pages root `CNAME` file was removed because this site is now hosted on Vercel.
+
+**Domain DNS configuration:** Use the project-specific addresses Vercel currently recommends, not GitHub Pages IPs. In BigRock's DNS management panel:
+1. For host `@`, retain/create two **A** records: `216.198.79.1` and `64.29.17.1` (Vercel's current preferred pair).
+2. For host `www`, use one **CNAME** record to `b6f8e486dfa12b84.vercel-dns-017.com`.
+3. Remove former GitHub Pages `@ A` records (`185.199.108.153` to `185.199.111.153`), and `www` records pointing to `premangshumal-cyber.github.io`. Remove conflicting `www` A/AAAA/CNAME records so only the correct Vercel CNAME remains.
+4. Preserve unrelated MX/TXT records (email verification, SPF/DKIM/DMARC) and NS records. If the project later displays different Vercel DNS recommendations, follow the updated Vercel domain settings.
+5. After DNS propagation, verify both domain names in **Vercel → Project → Settings → Domains** and check that HTTPS certificates are valid.
+
+**Do not reactivate GitHub Pages custom-domain hosting for this domain.** GitHub is used for source control and binary GitHub Releases, while Vercel serves the website.
 
 ## Included
 - Home, Features, Downloads, Release Notes, and Privacy & Licenses HTML pages
@@ -23,21 +36,11 @@ The software packages are hosted as **GitHub Release assets**, not regular git r
 
 GitHub confirmed the v1.1.0 pre-release is public and these four assets were uploaded; their file sizes match those in the local release notes. Checksums, QA report, and Windows test checklist are available from the website's local `downloads/` directory, not GitHub Releases. Confirm the checksum of each downloaded binary before use.
 
-## Enable GitHub Pages
-Repository → **Settings** → **Pages** → Build and deployment → **Deploy from a branch** → Branch **main**, folder **/(root)** → Save.
+## Deployment and TLS
 
-Expected custom-domain URL: https://videoview.online/ (after DNS and Pages verification).
+GitHub commits to `main` deploy automatically through the connected Vercel project. Vercel has verified both project domain names, but certificates and routing require correct DNS at the authoritative BigRock nameservers.
 
-### DNS setup at your domain registrar
-Create four A records for host `@` pointing to:
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
-
-Add a CNAME record for host `www` pointing to `premangshumal-cyber.github.io` (without the repository suffix). Remove conflicting old parking/forwarding A, AAAA, or CNAME records for these hostnames. Do not delete unrelated MX or TXT records.
-
-In GitHub Pages settings, confirm the **Custom domain** is `videoview.online` and save if necessary. When DNS validation and the TLS certificate finish, enable **Enforce HTTPS**. DNS propagation can take up to 24 hours.
+If you receive `NET::ERR_CERT_COMMON_NAME_INVALID` for `www.videoview.online`, first remove mixed GitHub Pages records, wait for propagation, and allow Vercel to issue the correct certificate. Do not bypass the browser's HTTPS warning. For live troubleshooting, open Vercel → Project → **Settings → Domains**.
 
 This is a project website, not the Windows software itself. **Native Windows startup/playback and installation tests have not yet been completed**, per the QA report. Do not call this a stable/verified release without completing the Windows test checklist.
 
