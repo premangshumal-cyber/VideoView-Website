@@ -51,4 +51,4 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#091824;border:1px so
 @media(max-width:1050px){.nav-inner{height:auto;min-height:79px;flex-wrap:wrap}.nav-toggle{display:none}.desktop-nav{display:flex;position:static;flex-basis:100%;padding:12px 0 20px;flex-wrap:wrap;flex-direction:row;gap:12px;background:transparent;border:0;box-shadow:none}.nav-ready .nav-toggle{display:flex}.nav-ready .desktop-nav{display:none;position:absolute;left:0;right:0;top:79px;background:#0d1926;border-bottom:1px solid #31515a;padding:20px;flex-direction:column;align-items:stretch;gap:3px;max-height:calc(100dvh - 79px);overflow-y:auto}.nav-ready .desktop-nav.is-open{display:flex}.desktop-nav>a:not(.btn){padding:10px}.nav-ready .nav-inner{height:79px;flex-wrap:nowrap}}
 @media(max-width:600px){.release-facts{grid-template-columns:1fr;gap:5px;padding:20px}.release-facts dd{margin-bottom:12px}.guide-actions .btn{width:100%}.footer-bottom-links{flex-wrap:wrap}.mock-caption{display:block}}
 
-.side-card p a:not(.btn){text-decoration:underline;text-underline-offset:3px}
+.side-card p a:not(.btn),.prose-section a:not(.btn){text-decoration:underline;text-underline-offset:3px}
