@@ -1,4 +1,6 @@
 # VideoView Website — Deployment Guide
+**Current hosting:** VideoView's official production website is on Vercel, with GitHub providing source control and Releases. GitHub Pages instructions are obsolete for `videoview.online`.
+
 
 ## 1. Which package should I use?
 
@@ -53,15 +55,33 @@ Open `assets/js/download-config.js` in the website-only files. Set only `baseUrl
 
 **Important:** Cloudflare Pages limits individual static site files to **25 MiB**, so do **not** upload the full site with large `.exe` / `.zip` assets to Pages. Keep those on GitHub Releases or another large-file delivery service.
 
-## 4. Option C — GitHub Pages + GitHub Releases
+## 4. Current production hosting — Vercel + GitHub Releases
 
-1. Use the **website-only** ZIP and host the binaries separately on the GitHub release as above.
-2. Create a public GitHub repository for the website, add the extracted website-only contents to its root, and set `baseUrl` to the GitHub release.
-3. Under **Settings → Pages**, select deployment from a branch and set `main` / `/(root)`, or configure GitHub Actions for Pages.
-4. Open the Pages URL after deployment; verify all navigation and release links work.
-5. Set a custom domain using the Pages settings and follow the provider's DNS instructions if desired.
+**The official VideoView website is hosted on Vercel, not GitHub Pages.** GitHub stores its source and download release assets; Vercel deploys from the `main` branch of `premangshumal-cyber/VideoView-Website`.
 
-**Important:** GitHub enforces a **100 MB single-file limit for normal repository objects**. The installer and portable ZIP are both larger than 100 MB, so never commit them directly into your normal Pages Git repository. Use Releases assets instead.
+- Vercel project: https://vercel.com/premangshu/videoview-website
+- Preferred domain: https://www.videoview.online/
+- Apex domain: https://videoview.online/ (308 redirect to WWW)
+- DNS provider: BigRock (registrar-level authoritative nameservers are `dns1.bigrock.in` to `dns4.bigrock.in`).
+- Vercel's project-specific WWW CNAME target: `b6f8e486dfa12b84.vercel-dns-017.com`.
+- Vercel's preferred apex A records at the time of migration: `216.198.79.1`, `64.29.17.1`. Follow Vercel project settings if these are changed in future.
+
+**Do not point the official domain to GitHub Pages or re-create the former GitHub `CNAME` file.** The GitHub Pages-only `.nojekyll` file was also removed. The site's `index.html`, other assets, source code and GitHub Releases must remain, because they power the active Vercel website and its downloads.
+
+If GitHub Pages is still enabled in GitHub's repository settings, its administrator should open **Settings → Pages**, choose **Unpublish site**, and disable Pages publishing (for example set the deployment branch to **None**, when shown). The connected GitHub tool cannot alter repository Pages configuration directly.
+
+### Troubleshooting old GitHub Pages 404/invalid TLS after migration
+
+An old resolver can still direct `www.videoview.online` to `premangshumal-cyber.github.io` or IPv4 `185.199.108.153`–`185.199.111.153` / IPv6 `2606:50c0:8000::153` etc. Deleting files or unpublishing GitHub Pages **does not clear upstream DNS caches**.
+
+Compare the default system DNS with public resolvers:
+```powershell
+nslookup -type=CNAME www.videoview.online
+nslookup -type=CNAME www.videoview.online 1.1.1.1
+nslookup -type=CNAME www.videoview.online 8.8.8.8
+Get-DnsClientServerAddress
+```
+If only the default resolver returns `premangshumal-cyber.github.io`, correct that resolver or its upstream network. Do not continue deleting website source files.
 
 ## 5. Local preview and tests
 
