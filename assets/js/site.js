@@ -9,8 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
   }
   if (nav && toggle) {
+    toggle.closest(".site-header")?.classList.add("nav-ready");
     toggle.addEventListener("click", () => setNav(!nav.classList.contains("is-open")));
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setNav(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("is-open")) { setNav(false); toggle.focus(); } });
     nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setNav(false)));
   }
   document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());

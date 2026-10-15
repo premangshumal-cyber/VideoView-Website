@@ -2,7 +2,7 @@
 
 **Official website:** [www.videoview.online](https://www.videoview.online/)
 
-Explore and download **VideoView**, a video and audio media player for Windows 10/11 (x64) with playlists, subtitles, playback controls, and a separately published **Android APK pre-release**.
+Explore and download **VideoView**, a video and audio media player for Windows x64 (see the platform guide for Windows 10 limitations) with playlists, subtitles, playback controls, and a separately published **Android APK pre-release**.
 
 - [VideoView official downloads — Windows installer, portable ZIP and Android APK](https://www.videoview.online/downloads.html)
 - [VideoView features](https://www.videoview.online/features.html)
@@ -29,7 +29,7 @@ This repository contains the premium navy-and-teal **website** and release asset
 **Do not reactivate GitHub Pages custom-domain hosting for this domain.** GitHub is used for source control and binary GitHub Releases, while Vercel serves the website.
 
 ## Included
-- Home, Features, Downloads, Release Notes, and Privacy & Licenses HTML pages
+- Home, Features, Downloads, Release Notes, Privacy & Licenses, Windows, Android and Help HTML pages
 - Responsive CSS and plain JavaScript, no build tools or dependencies
 - SVG brand mark and original landscape illustration (concept art, not a real product screenshot)
 - SHA-256 checksum list, test reports, Windows test checklist and release notes
@@ -52,6 +52,8 @@ GitHub commits to `main` deploy automatically through the connected Vercel proje
 If you receive `NET::ERR_CERT_COMMON_NAME_INVALID` for `www.videoview.online`, first remove mixed GitHub Pages records, wait for propagation, and allow Vercel to issue the correct certificate. Do not bypass the browser's HTTPS warning. For live troubleshooting, open Vercel → Project → **Settings → Domains**.
 
 This is a project website, not the Windows software itself. **Native Windows startup/playback and installation tests have not yet been completed**, per the QA report. Do not call this a stable/verified release without completing the Windows test checklist.
+
+See [Windows guide](https://www.videoview.online/windows.html), [Android APK guide](https://www.videoview.online/android.html) and [help / shortcuts](https://www.videoview.online/help.html).
 
 See [deployment guide](DEPLOYMENT_GUIDE.md) for alternate hosts and website deployment.
 
