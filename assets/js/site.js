@@ -1,19 +1,5 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
-  const nav = document.querySelector("[data-nav]");
-  const toggle = document.querySelector("[data-nav-toggle]");
-  function setNav(open) {
-    if (!nav || !toggle) return;
-    nav.classList.toggle("is-open", open);
-    toggle.setAttribute("aria-expanded", String(open));
-    toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
-  }
-  if (nav && toggle) {
-    toggle.closest(".site-header")?.classList.add("nav-ready");
-    toggle.addEventListener("click", () => setNav(!nav.classList.contains("is-open")));
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("is-open")) { setNav(false); toggle.focus(); } });
-    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setNav(false)));
-  }
   document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     document.body.classList.add("js-reveal");
