@@ -1,5 +1,14 @@
-# VideoView website
-Premium dark-navy and teal static website for **VideoView 1.1.0 (Windows x64 release candidate)**.
+# VideoView — Video Player for Windows & Android
+
+**Official website:** [www.videoview.online](https://www.videoview.online/)
+
+Explore and download **VideoView**, a video and audio media player for Windows 10/11 (x64) with playlists, subtitles, playback controls, and a separately published **Android APK pre-release**.
+
+- [VideoView official downloads — Windows installer, portable ZIP and Android APK](https://www.videoview.online/downloads.html)
+- [VideoView features](https://www.videoview.online/features.html)
+- [Release notes, pre-release status and testing information](https://www.videoview.online/release-notes.html)
+
+This repository contains the premium navy-and-teal **website** and release assets. Windows and Android builds are currently **pre-releases**, and device-specific installation/playback verification is incomplete.
 
 ## Official production website — Vercel
 
